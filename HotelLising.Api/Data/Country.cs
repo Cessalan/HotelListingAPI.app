@@ -1,11 +1,15 @@
-﻿namespace HotelLising.Api.Data
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace HotelLising.Api.Data
 {
     public class Country 
     {
         public int CountryId { get; set; }
-        public string Name { get; set; }
 
-        public string ShortName { get; set; }
+        [Required]
+        public required string Name { get; set; }
+        [Required]
+        public required string ShortName { get; set; }
 
         public ICollection<Hotel> Hotels { get; set; } = [];
 
