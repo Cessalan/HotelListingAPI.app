@@ -30,7 +30,7 @@ namespace HotelLising.Api.Services
             return result;
         }
 
-        public async Task<Result<GetHotelDto?>> GetHotelAsync(int hotelId)
+        public async Task<ICustomResult> GetHotelAsync(int hotelId)
         {
             var hotel = await _context.Hotels
                .Where(h => h.Id == hotelId)
@@ -42,6 +42,11 @@ namespace HotelLising.Api.Services
                    h.CountryId,
                    h.Country!.Name
                )).FirstOrDefaultAsync();
+
+            if (hotel == null)
+            {
+                return Result<object>.NotFound("No hotel found");
+            }
 
             var result = Result<GetHotelDto?>.Ok(data: hotel,
                                                 message: "hotel fetched successufly");

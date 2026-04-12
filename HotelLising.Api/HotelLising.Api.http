@@ -21,3 +21,25 @@ GET {{HotelLising.Api_HostAddress}}/api/hotels/{{id}}
 GET {{HotelLising.Api_HostAddress}}/api/hotels
 
 ###
+
+POST {{HotelLising.Api_HostAddress}}/api/hotels
+Content-Type: application/json
+
+{
+  "Name":"test1",
+  "Address":"test1",
+  "Rating":"2",
+  "CountryId":"0"
+}
+
+###
+
+POST {{HotelLising.Api_HostAddress}}/api/countries
+Content-Type: application/json
+
+{
+  "Name":"United-states",
+  "ShortName":"USA"
+}
+
+###

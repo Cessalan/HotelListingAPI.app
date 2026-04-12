@@ -1,9 +1,7 @@
-﻿using HotelLising.Api.Data;
-using HotelLising.Api.DTOs.Hotel;
+﻿using HotelLising.Api.DTOs.Hotel;
 using HotelLising.Api.Results;
 using HotelLising.Api.Services;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace HotelLising.Api.Controllers
 {
@@ -40,16 +38,9 @@ namespace HotelLising.Api.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutHotel(int id, UpdateHotelDto hotelDto)
         {
-            if (id != hotelDto.Id)
-            {
-                return BadRequest();
-            }
+            var result =   await _services.UpdateHotelAsync(hotelDto);
 
-
-            await _services.UpdateHotelAsync(hotelDto);
-
-
-            return NoContent();
+            return HandleResult(result);
         }
 
         // POST: api/Hotels

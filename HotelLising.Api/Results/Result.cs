@@ -18,7 +18,7 @@ namespace HotelLising.Api.Results
         public static Result<TData> Create(bool isSuccess,
                                            int statusCode,
                                            string message,
-                                           TData data = default!,
+                                           TData? data = default!,
                                            object? errors = null)
         {
             return new Result<TData>

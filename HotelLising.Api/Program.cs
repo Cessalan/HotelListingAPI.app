@@ -12,6 +12,7 @@ var connectionString = builder.Configuration.GetConnectionString("HotelListingSQ
 builder.Services.AddDbContext<HotelListingDBContext>(options => options.UseSqlServer(connectionString));
 
 builder.Services.AddScoped<IHotelServices, HotelServices>();
+builder.Services.AddScoped<ICountriesServices, CountriesServices>();
 
 
 builder.Services.AddControllers();

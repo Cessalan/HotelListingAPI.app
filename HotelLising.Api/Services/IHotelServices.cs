@@ -7,7 +7,7 @@ namespace HotelLising.Api.Services
     {
         Task<ICustomResult> CreateHotel(CreateHotelDto hotelDto);
         Task<ICustomResult> DeleteHotelAsync(DeleteHotelDTO deleteHotelDTO);
-        Task<Result<GetHotelDto?>> GetHotelAsync(int hotelId);
+        Task<ICustomResult> GetHotelAsync(int hotelId);
         Task<Result<IEnumerable<GetHotelDto>>> GetHotelsAsync();
         Task<ICustomResult> UpdateHotelAsync(UpdateHotelDto hotelDto);
     }
